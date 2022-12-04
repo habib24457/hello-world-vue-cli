@@ -18,6 +18,12 @@
 
     <h2 v-bind:class="['new','promoted']">Newly promoted movie</h2>
     <h2 v-bind:class="[isPromoted && 'promoted',isSoldout?'sold-out':'new-movie']">Array Conditional</h2>
+
+    <h2 v-bind:class="{
+      promoted:isPromoted,
+      'new-movie':isNew,
+      'sold-out':isSoldOut
+    }">Object Conditional Binding</h2>
   </div>
 </template>
 
@@ -40,7 +46,7 @@ export default {
       status:"danger",
       isPromoted:true,
       isNew:true,
-      isSoldOut:true
+      isSoldOut:false
     }
   }
 }
