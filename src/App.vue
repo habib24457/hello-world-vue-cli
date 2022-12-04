@@ -24,6 +24,18 @@
       'new-movie':isNew,
       'sold-out':isSoldOut
     }">Object Conditional Binding</h2>
+
+    <h2 class="underline">Inline Style</h2>
+    <h2 v-bind:style="{
+      color:'blue',
+      'font-size':dynFontSize +'px',
+      backgroundColor:'orange'
+    }">This text contains inline style.</h2>
+
+    <h2 class="underline">Conditional Rendering (v-if,v-else-if...)</h2>
+    <h2 v-if="(num===0)">1.This number is zero</h2>
+    <h2 v-else-if="(num<0)">2.This number is Negative</h2>
+    <h2 v-else>3.(v-else) The number is not zero</h2>
   </div>
 </template>
 
@@ -46,7 +58,9 @@ export default {
       status:"danger",
       isPromoted:true,
       isNew:true,
-      isSoldOut:false
+      isSoldOut:false,
+      dynFontSize:40,
+      num:5
     }
   }
 }
