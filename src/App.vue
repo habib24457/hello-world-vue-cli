@@ -59,6 +59,10 @@
       <h2 v-for="value in myInfo" :key="value">{{value}}</h2>
     </div>
 
+    <h2 class="underline">Methods or functions</h2>
+    <h2>Add Three Numbers (10+20+30)= {{add(10,20,30)}}</h2>
+    <h2>Multiped by 5= {{baseMultiplier(5 )}}</h2>
+
   </div>
 </template>
 
@@ -105,14 +109,20 @@ export default {
         myName:'Habib',
         job:'Web Dev',
         age:'26'
-      }
-
-
-
-
-
+      },
+      multiplierNum:5,
+    }
+  },
+  methods:{
+    add(a,b,c){
+      return a+b+c;
+    },
+    baseMultiplier(num){
+      //'this' keyward is used here bcz multiplierNum is a variable from data:{}
+      return num*this.multiplierNum
     }
   }
+
 }
 </script>
 
