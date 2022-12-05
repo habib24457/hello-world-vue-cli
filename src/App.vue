@@ -70,6 +70,19 @@
       <h2>{{count}}</h2>
       <button @click="(count+=1)">Increase</button>
       <button @click="(count-=1)">Decrease</button>
+      <br/>
+      <button @click="getEvent">Click to Pass the event and Check the Console</button>
+      <button @click="passValue(5)">Pass value to method</button>
+      <br/>
+      <button @click="passArgNevent(10,$event)">Pass arguement and event</button>
+      <br/>
+      <br/>
+      <h2>Event 1:{{myNum}} | Event 2:{{myUserName}} </h2>
+      <button @click="(increaseFive(5),changeVal('red'))">Handle Two Events on One Click</button>
+    </div>
+
+    <div>
+      <h2 class="underline"></h2>
     </div>
 
   </div>
@@ -121,7 +134,8 @@ export default {
       },
       multiplierNum:5,
       myUserName:"Habib",
-      count:0
+      count:0,
+      myNum:10
     }
   },
   methods:{
@@ -131,6 +145,25 @@ export default {
     baseMultiplier(num){
       //'this' keyward is used here bcz multiplierNum is a variable from data:{}
       return num*this.multiplierNum
+    },
+    getEvent(event){
+      console.log(event)
+    },
+    passValue(num){
+      console.log(num)
+    },
+    passArgNevent(val,e){
+      console.log(val,e);
+    },
+    increaseFive(num){
+      console.log(num)
+      this.myNum = num + this.myNum
+      return this.myNum
+    },
+    changeVal(strVal){
+      console.log(strVal)
+      this.myUserName = strVal+this.myUserName
+      return this.myUserName
     }
   }
 
