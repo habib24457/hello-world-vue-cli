@@ -63,6 +63,15 @@
     <h2>Add Three Numbers (10+20+30)= {{add(10,20,30)}}</h2>
     <h2>Multiped by 5= {{baseMultiplier(5 )}}</h2>
 
+    <div>
+      <h2 class="underline">Click and other events</h2>
+      <h2>{{myUserName}}</h2>
+      <button v-on:click="myUserName='Rahman'">Change Name</button>
+      <h2>{{count}}</h2>
+      <button @click="(count+=1)">Increase</button>
+      <button @click="(count-=1)">Decrease</button>
+    </div>
+
   </div>
 </template>
 
@@ -111,6 +120,8 @@ export default {
         age:'26'
       },
       multiplierNum:5,
+      myUserName:"Habib",
+      count:0
     }
   },
   methods:{
