@@ -36,6 +36,29 @@
     <h2 v-if="(num===0)">1.This number is zero</h2>
     <h2 v-else-if="(num<0)">2.This number is Negative</h2>
     <h2 v-else>3.(v-else) The number is not zero</h2>
+
+    <template v-if="isDisplay">
+      <h2>This section is using template instead of div</h2>
+      <h2 v-show="isDisplay" class="underline">v-show vs v-if</h2>
+      <h2> v-show is toggle between display none to display block css property.</h2>
+    </template>
+
+    <div>
+      <h2 class="underline">v-for directive for Array of strings, objects, arrays block of html and object key value pairs</h2>
+      <h2 class="underline">1.Array of Strings:</h2>
+      <h2 v-for="(heroName,index) in names" :key="heroName">{{index}} {{heroName}}</h2>
+      <h2 class="underline">2.Array of objects</h2>
+      <h2 v-for="(heroFullName,index) in fullNames" :key="heroFullName.first">{{(index+1)}} {{heroFullName.first}} {{heroFullName.last}}</h2>
+      <h2 class="underline">3.Array of array</h2>
+      <div  v-for="actor in actors" :key="actor.actorName">
+          <h2 class="sub-menu">{{actor.actorName}}</h2>
+          <h2 v-for="movie in actor.movies" :key="movie">{{movie}}</h2>
+      </div>
+
+      <h2 class="sub-menu">My Info | Object | v-for</h2>
+      <h2 v-for="value in myInfo" :key="value">{{value}}</h2>
+    </div>
+
   </div>
 </template>
 
@@ -60,7 +83,34 @@ export default {
       isNew:true,
       isSoldOut:false,
       dynFontSize:40,
-      num:5
+      num:5,
+      isDisplay:true,
+      names:['Bruce Wayne', 'Clark Cent', 'Aurthur'],
+      fullNames:[
+        {first:'Peter',last:'Parker'},
+        {first:'Tony',last:'Stark'},
+        {first:'Thor',last:'Odin'},
+      ],
+      actors:[
+        {
+          actorName:"Ben Stiller",
+          movies:['Secret Life of Walter Mitty', 'Brads Status', 'Something about Marry']
+      },
+      {
+        actorName:"Natalie Portman",
+        movies:['Black Swan', 'Star Wars']
+      }
+      ],
+      myInfo:{
+        myName:'Habib',
+        job:'Web Dev',
+        age:'26'
+      }
+
+
+
+
+
     }
   }
 }
@@ -78,6 +128,11 @@ export default {
 
 .underline{
 text-decoration: underline;
+background-color: orange;
+}
+
+.sub-menu{
+  background-color: green;
 }
 
 .danger{
